@@ -1,0 +1,75 @@
+{
+    "project_name": "Food Delivery App",
+    "analysis": {
+        "total_monthly_cost": 75000,
+        "budget": 50000,
+        "budget_variance": 25000,
+        "is_over_budget": true,
+        "service_costs": {
+            "Compute Instance": 60000,
+            "Database Instance": 48000,
+            "Object Storage": 1875,
+            "Monitoring": 2000,
+            "Analytics": 2000
+        }
+    },
+    "recommendations": [
+        {
+            "title": "Right-size Compute Instances",
+            "service": "Compute Instance",
+            "current_cost": 60000,
+            "potential_savings": 15000,
+            "recommendation_type": "right_sizing",
+            "description": "Downsize Compute Instances to match the actual usage.",
+            "implementation_effort": "medium",
+            "risk_level": "low",
+            "steps": [
+                "Identify underutilized Compute Instances",
+                "Downsize Compute Instances to match the actual usage"
+            ],
+            "cloud_providers": [
+                "AWS",
+                "Azure",
+                "GCP"
+            ]
+        },
+        {
+            "title": "Migrate to Free Tier for Monitoring and Analytics",
+            "service": "Monitoring and Analytics",
+            "current_cost": 4000,
+            "potential_savings": 4000,
+            "recommendation_type": "free_tier",
+            "description": "Migrate to free tier for Monitoring and Analytics services.",
+            "implementation_effort": "low",
+            "risk_level": "low",
+            "steps": [
+                "Check if free tier is available for Monitoring and Analytics services",
+                "Migrate to free tier"
+            ],
+            "cloud_providers": [
+                "AWS",
+                "Azure",
+                "GCP"
+            ]
+        },
+        {
+            "title": "Optimize Object Storage",
+            "service": "Object Storage",
+            "current_cost": 1875,
+            "potential_savings": 0,
+            "recommendation_type": "open_source",
+            "description": "Optimize Object Storage by using open-source alternatives.",
+            "implementation_effort": "high",
+            "risk_level": "medium",
+            "steps": [
+                "Research open-source alternatives for Object Storage",
+                "Implement open-source alternatives"
+            ],
+            "cloud_providers": [
+                "AWS",
+                "Azure",
+                "GCP"
+            ]
+        }
+    ]
+}
