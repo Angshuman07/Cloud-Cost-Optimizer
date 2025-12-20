@@ -1,5 +1,9 @@
 import backend
 import os
+import sys
+
+
+sys.stdout.reconfigure(encoding='utf-8')
 
 def main_menu():
     while True:
@@ -16,15 +20,10 @@ def main_menu():
         if choice == '1':
             print("\nEnter project description (Press Enter for default):")
             desc = input("> ")
-            if not desc:
-                desc = """We are building a food delivery app for 10,000 users per month. 
-                Budget: ₹50,000 per month. 
-                Tech stack: Node.js backend, PostgreSQL database, object storage for images, monitoring, and basic analytics. 
-                Non-functional requirements: scalability, cost efficiency, uptime monitoring."""
             
             with open("project_description.txt", "w", encoding="utf-8") as f:
                 f.write(desc)
-            print("✅ Saved to project_description.txt")
+            print("[OK] Saved to project_description.txt")
             
         elif choice == '2':
             if not os.path.exists("project_description.txt"):
@@ -59,13 +58,13 @@ def main_menu():
             report = backend.load_json('cost_optimization_report.json')
             if report:
                 print(f"\nREPORT FOR: {report.get('project_name')}")
-                print(f"Total Monthly Cost: ₹{report['analysis']['total_monthly_cost']}")
-                print(f"Budget Variance:    ₹{report['analysis']['budget_variance']}")
+                print(f"Total Monthly Cost: INR {report['analysis']['total_monthly_cost']}")
+                print(f"Budget Variance:    INR {report['analysis']['budget_variance']}")
                 
-                print("\n💡 TOP RECOMMENDATIONS:")
+                print("\n>>> TOP RECOMMENDATIONS:")
                 for rec in report.get('recommendations', [])[:3]:
                     print(f"\n{rec['title']}")
-                    print(f"   Potential Savings: ₹{rec['potential_savings']}")
+                    print(f"   Potential Savings: INR {rec['potential_savings']}")
                     print(f"   Type: {rec['recommendation_type']}")
                     print(f"   Providers: {', '.join(rec.get('cloud_providers', []))}")
             else:

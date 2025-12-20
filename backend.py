@@ -10,7 +10,7 @@ load_dotenv()
 hf_token = os.getenv("HF_TOKEN")
 
 client = InferenceClient(
-    model="meta-llama/Llama-3.1-8B-Instruct:cerebras", 
+    model="meta-llama/Llama-3.1-8B-Instruct", 
     token=hf_token
 )
 
@@ -59,7 +59,7 @@ def save_json(filename, data):
     try:
         with open(filename, 'w') as f:
             json.dump(data, f, indent=4)
-        print(f"✅ Saved: {filename}")
+        print(f"[OK] Saved: {filename}")
         return True
     except Exception as e:
         print(f"Error saving {filename}: {e}")
@@ -70,7 +70,7 @@ def load_json(filename):
         with open(filename, 'r') as f:
             return json.load(f)
     except FileNotFoundError:
-        print(f"⚠️  File not found: {filename}")
+        print(f"[WARN]  File not found: {filename}")
         return None
 
 
